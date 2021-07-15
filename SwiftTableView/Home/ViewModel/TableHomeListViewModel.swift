@@ -123,20 +123,13 @@ extension TableHomeListViewModel {
     
     // 计算只有一张图片cell的高度
     func calculateOnePicHeight(model: TableHomeCircleModel) ->(contentHeight:CGFloat, picSize:CGSize) {
-        let contentHeight = self .calculateContentSize(content: model.content)
+        let contentHeight = calculateContentSize(content: model.content)
         if model.imgArray.count > 0 {
             let picture: TablePicture = model.imgArray[0]
             let picSize: CGSize = self.calculatePicSize(model: picture)
             return(contentHeight:contentHeight,picSize:picSize)
         }
         return(contentHeight: contentHeight, picSize:CGSize(width: 0, height: 0))
-    }
-    
-    
-    func calculateContentSize(content: String) -> CGFloat{
-        let maxWidth = ScreenWidth - kHomeContentX - kHomeMargin
-        let size = content.boundingRect(with: CGSize(width: maxWidth, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : TableStyle.shared.h4()], context: nil).size
-        return size.height.ceil + RS(5)
     }
     
     func calculatePicSize(model: TablePicture) -> CGSize {
@@ -163,7 +156,7 @@ extension TableHomeListViewModel {
     
     // 根据图片行数计算cell高度
     func calculateCellHeight(cellFrame:TableHomeListCellFrame, numRows: CGFloat, model: TableHomeCircleModel) {
-        let contentHeight = self.calculateContentSize(content: model.content)
+        let contentHeight = calculateContentSize(content: model.content)
         cellFrame.contentHeight = contentHeight
         let contentMaxY = kHomeContentY + contentHeight
         cellFrame.height = (kHomePicBeginY > contentMaxY ? kHomePicBeginY : contentMaxY) + kHomeMargin * (numRows + 1.0) + kHomePicWH * numRows

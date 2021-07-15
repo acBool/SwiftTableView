@@ -46,3 +46,9 @@ func cornerShapeLayer(view operateView: UIView, radius cornerRadius: CGFloat) ->
     maskLayer.path = maskPath.cgPath
     return maskLayer
 }
+
+func calculateContentSize(content: String) -> CGFloat{
+    let maxWidth = ScreenWidth - kHomeContentX - kHomeMargin
+    let size = content.boundingRect(with: CGSize(width: maxWidth, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : TableStyle.shared.h4()], context: nil).size
+    return size.height.ceil + RS(5)
+}

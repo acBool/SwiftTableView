@@ -8,6 +8,12 @@ import UIKit
 
 class TableDetailView: UIView {
     
+    var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout() {
+        didSet {
+            addCollectionView()
+        }
+    }
+    
     lazy var headImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = TableStyle.shared.mainBgColor()
@@ -35,7 +41,8 @@ class TableDetailView: UIView {
     }()
     
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .red
         return collectionView
     }()
     
@@ -55,5 +62,12 @@ extension TableDetailView {
         collectionHeaderView.addSubview(headImageView)
         collectionHeaderView.addSubview(nickNameLabel)
         collectionHeaderView.addSubview(contentLabel)
+        print("123")
+    }
+    
+    func addCollectionView() {
+        addSubview(collectionView)
+        collectionView.pin.top(kTopHeight).left().right().bottom()
+        print("234")
     }
 }

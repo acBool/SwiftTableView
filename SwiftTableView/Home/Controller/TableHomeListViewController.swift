@@ -13,8 +13,10 @@ class TableHomeListViewController: TableBaseViewController {
     var page = 0
     lazy var viewModel: TableHomeListViewModel = {
         let viewModel = TableHomeListViewModel()
-        viewModel.selectRowBlock = {(row: Int) in
-            self.navigationController?.pushViewController(TableDetailViewController(), animated: true)
+        viewModel.selectRowBlock = {[unowned self] (row: Int) in
+            let model: TableHomeCircleModel = self.viewModel.dataSourceArray[row]
+            let cellFrame: TableHomeListCellFrame = self.viewModel.cellFrameArray[row]
+            self.navigationController?.pushViewController(TableDetailViewController(model: model,cellFrame: cellFrame), animated: true)
         }
         return viewModel
     }()
