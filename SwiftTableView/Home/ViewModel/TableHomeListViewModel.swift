@@ -29,28 +29,36 @@ extension TableHomeListViewModel: UITableViewDelegate {
         // 首先判断是否已经计算过高度了
         
         if indexPath.row < cellFrameArray.count {
-            print("row = \(indexPath.row)")
             let cellFrame: TableHomeListCellFrame = cellFrameArray[indexPath.row]
             print(cellFrame.contentHeight)
             if cellFrame.height == 0 {
                 // 说明高度需要计算
                 let model: TableHomeCircleModel = dataSourceArray[indexPath.row]
-                var typeStr = self.getCellType(model: model)
+                let typeStr = self.getCellType(model: model)
                 let cellType = typeDictInfo[typeStr]
                 if cellType == nil {
                     return RS(100)
                 }else{
-                    
+                    switch cellType {
+                    case .TableHomeCellTypeWord:
+                        let contentHeight = self.calculateContentSize(content: model.content)
+                        cellFrame.contentHeight = contentHeight
+                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20)
+                        return cellFrame.height
+                    case .TableHomeCellTypeOnePic:
+                        let value = self.calculateOnePicHeight(model: model)
+                        cellFrame.contentHeight = value.contentHeight
+                        cellFrame.onePicSize = value.picSize
+                        let height = cellFrame.contentHeight + cellFrame.onePicSize.height + RS(50)
+                        print("height = \(height)")
+                        cellFrame.height = (RS(70) > height ? RS(80) : height) + RS(20)
+                        return cellFrame.height
+                    default:
+                        return RS(100)
+                    }
                 }
-                
-                
-                let contentHeight = self .calculateContentSize(content: model.content)
-                cellFrame.contentHeight = contentHeight
-                cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20)
-                print("calculate height = \(cellFrame.height)")
-                return cellFrame.height
             }else{
-                print("no calculate height = \(cellFrame.height)")
+                // 直接返回已经存在的布局
                 return cellFrame.height
             }
         }

@@ -51,7 +51,7 @@ class TableHomeOnePicCell: TableHomeBaseCell {
         super.layoutSubviews()
         let margin = RS(10)
         self.contentLabel.frame = CGRect(x: RS(70), y: RS(40), width: ScreenWidth - RS(80), height: self.cellFrame.contentHeight)
-        self.picImageView.frame = CGRect(x: 200, y: 40, width: 30, height: 30)
+        self.picImageView.frame = CGRect(x: margin, y: self.contentLabel.frame.maxY + margin, width: self.cellFrame.onePicSize.width, height: self.cellFrame.onePicSize.height)
         let shapeLayer = cornerShapeLayer(view: self.picImageView, radius: RS(5))
         self.picImageView.layer.mask = shapeLayer
         spaceView.frame = CGRect(x: margin, y: self.cellFrame.height - 0.5, width: ScreenWidth - 2 * margin, height: 0.5)
