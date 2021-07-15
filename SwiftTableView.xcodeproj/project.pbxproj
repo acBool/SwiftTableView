@@ -30,6 +30,8 @@
 		F0687564269D93E80069ED15 /* TableHomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0687563269D93E80069ED15 /* TableHomeListView.swift */; };
 		F06D829E269F23AC0009057D /* TableHomeCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06D829D269F23AC0009057D /* TableHomeCellFactory.swift */; };
 		F084904D26A0267E00251AB5 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = F084904C26A0267E00251AB5 /* 1.json */; };
+		F084905126A028B700251AB5 /* TableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084905026A028B700251AB5 /* TableDetailViewController.swift */; };
+		F084905326A0307900251AB5 /* TableBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084905226A0307900251AB5 /* TableBaseNavigationController.swift */; };
 		F0A2E2C9269DF270007D423C /* TableHomeBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2C8269DF270007D423C /* TableHomeBaseCell.swift */; };
 		F0A2E2CB269DF37B007D423C /* TableHomeWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2CA269DF37B007D423C /* TableHomeWordCell.swift */; };
 		F0A2E2CD269DF3B0007D423C /* TableHomeOnePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2CC269DF3B0007D423C /* TableHomeOnePicCell.swift */; };
@@ -91,6 +93,8 @@
 		F0687563269D93E80069ED15 /* TableHomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeListView.swift; sourceTree = "<group>"; };
 		F06D829D269F23AC0009057D /* TableHomeCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeCellFactory.swift; sourceTree = "<group>"; };
 		F084904C26A0267E00251AB5 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
+		F084905026A028B700251AB5 /* TableDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailViewController.swift; sourceTree = "<group>"; };
+		F084905226A0307900251AB5 /* TableBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBaseNavigationController.swift; sourceTree = "<group>"; };
 		F0A2E2C8269DF270007D423C /* TableHomeBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeBaseCell.swift; sourceTree = "<group>"; };
 		F0A2E2CA269DF37B007D423C /* TableHomeWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeWordCell.swift; sourceTree = "<group>"; };
 		F0A2E2CC269DF3B0007D423C /* TableHomeOnePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeOnePicCell.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 		F068750F269D1DCE0069ED15 /* SwiftTableView */ = {
 			isa = PBXGroup;
 			children = (
+				F084904E26A0287000251AB5 /* Detail */,
 				F02A5FFD269EC5A800A4C15F /* Resource */,
 				F068755B269D904E0069ED15 /* Home */,
 				F0687554269D4AC10069ED15 /* Style */,
@@ -250,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				F0687552269D48AA0069ED15 /* TableBaseViewController.swift */,
+				F084905226A0307900251AB5 /* TableBaseNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,6 +303,22 @@
 				F0687563269D93E80069ED15 /* TableHomeListView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F084904E26A0287000251AB5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F084904F26A0287A00251AB5 /* Controllers */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F084904F26A0287A00251AB5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F084905026A028B700251AB5 /* TableDetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F0A2E2C7269DF229007D423C /* TableViewCell */ = {
@@ -554,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0687515269D1DCE0069ED15 /* ViewController.swift in Sources */,
+				F084905326A0307900251AB5 /* TableBaseNavigationController.swift in Sources */,
 				F02A5FFC269EBF8800A4C15F /* TableHomeCircleModel.swift in Sources */,
 				F0687511269D1DCE0069ED15 /* AppDelegate.swift in Sources */,
 				F068755A269D8C770069ED15 /* TableSpecViewProtocol.swift in Sources */,
@@ -567,6 +590,7 @@
 				F0A2E2D3269DF484007D423C /* TableHomeFSPicCell.swift in Sources */,
 				F0A2E2C9269DF270007D423C /* TableHomeBaseCell.swift in Sources */,
 				F0A2E2CB269DF37B007D423C /* TableHomeWordCell.swift in Sources */,
+				F084905126A028B700251AB5 /* TableDetailViewController.swift in Sources */,
 				F0687564269D93E80069ED15 /* TableHomeListView.swift in Sources */,
 				F02A5FF9269E9FBD00A4C15F /* TableHomeListViewModel.swift in Sources */,
 				F0A2E2D1269DF42C007D423C /* TableHomeFourPicCell.swift in Sources */,

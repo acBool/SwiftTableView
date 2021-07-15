@@ -36,7 +36,6 @@ class TableHomeListView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         titleLabel.pin.hCenter().top(kStatusBarHeight).height(kNavBarHeight)
         tableView.pin.below(of: titleLabel).left().right().bottom()
     }

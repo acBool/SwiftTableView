@@ -9,12 +9,13 @@ import ESPullToRefresh
 import HandyJSON
 
 class TableHomeListViewController: TableBaseViewController {
-
-    //typealias SpecViewType = TableHomeListView
     
     var page = 0
     lazy var viewModel: TableHomeListViewModel = {
         let viewModel = TableHomeListViewModel()
+        viewModel.selectRowBlock = {(row: Int) in
+            self.navigationController?.pushViewController(TableDetailViewController(), animated: true)
+        }
         return viewModel
     }()
     
@@ -35,7 +36,9 @@ class TableHomeListViewController: TableBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        specView.tableView.es.startPullToRefresh()
+        if self.viewModel.dataSourceArray.count == 0 {
+            specView.tableView.es.startPullToRefresh()
+        }
     }
 }
 
@@ -60,7 +63,7 @@ extension TableHomeListViewController {
                 self.viewModel.dataSourceArray += dataArray
                 self.viewModel.cellFrameArray.removeAll()
                 for _ in 1...dataArray.count {
-                    var cellFrame = TableHomeListCellFrame()
+                    let cellFrame = TableHomeListCellFrame()
                     self.viewModel.cellFrameArray.append(cellFrame)
                 }
                 specView.tableView.reloadData()
@@ -74,10 +77,9 @@ extension TableHomeListViewController {
                 self.page += 1
                 self.viewModel.dataSourceArray += dataArray
                 for _ in 1...dataArray.count {
-                    var cellFrame = TableHomeListCellFrame()
+                    let cellFrame = TableHomeListCellFrame()
                     self.viewModel.cellFrameArray.append(cellFrame)
                 }
-//                self.viewModel.cellFrameArray += Array(repeating: TableHomeListCellFrame(), count: dataArray.count)
                 specView.tableView.reloadData()
                 specView.tableView.es.stopLoadingMore()
             }else {

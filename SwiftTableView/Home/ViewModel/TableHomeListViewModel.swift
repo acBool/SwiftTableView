@@ -22,6 +22,9 @@ class TableHomeListViewModel: NSObject {
     var dataSourceArray: [TableHomeCircleModel] = []
     var cellFrameArray: [TableHomeListCellFrame] = []
     var typeDictInfo: [String: TableHomeCellType] = ["text": .TableHomeCellTypeWord,"img_1": .TableHomeCellTypeOnePic,"img_2": .TableHomeCellTypeTTPic,"img_3": .TableHomeCellTypeTTPic,"img_4": .TableHomeCellTypeFourPic,"img_5":.TableHomeCellTypeFSPic,"img_6":.TableHomeCellTypeFSPic,"img_7":.TableHomeCellTypeSENPic,"img_8":.TableHomeCellTypeSENPic,"img_9":.TableHomeCellTypeSENPic]
+    
+    typealias selectBlock = (_ row: Int) ->Void
+    var selectRowBlock: selectBlock?
 }
 
 extension TableHomeListViewModel: UITableViewDelegate {
@@ -71,6 +74,9 @@ extension TableHomeListViewModel: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: false)
+        if self.selectRowBlock != nil {
+            self.selectRowBlock!(indexPath.row)
+        }
     }
     
 }
