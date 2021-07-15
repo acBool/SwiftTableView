@@ -19,6 +19,7 @@ let kHomeHeadWH = RS(50)
 let kHomePicBeginY = kHomeHeadWH + kHomeMargin
 let kHomeContentY = RS(40)
 let kHomeContentX = kHomeHeadWH + 2 * kHomeMargin
+let kHomeMaxContentHeight = 80 // 最多显示5行
 
 let kStatusBarHeight =  UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.size.height ?? 20
 

@@ -67,7 +67,7 @@ extension TableDetailViewController {
             layout.itemSize = CGSize(width: kHomePicWH, height: kHomePicWH)
         }
         specView.flowLayout = layout
-        specView.contentHeight = cellFrame.contentHeight
+        specView.contentHeight = cellFrame.realContentHeight
         specView.bindHeaderData(model: self.dataModel)
     }
     

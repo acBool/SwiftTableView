@@ -12,6 +12,7 @@ import UIKit
 class TableHomeListCellFrame {
     var height: CGFloat = 0
     var contentHeight: CGFloat = 0
+    var realContentHeight: CGFloat = 0
     var onePicSize: CGSize = CGSize(width: 0, height: 0)
     var contentFrame: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
 }
@@ -167,15 +168,17 @@ extension TableHomeListViewModel {
     // 根据图片行数计算cell高度
     func calculateCellHeight(cellFrame:TableHomeListCellFrame, numRows: CGFloat, model: TableHomeCircleModel) {
         let contentHeight = calculateContentSize(content: model.content)
-        cellFrame.contentHeight = contentHeight
-        let contentMaxY = kHomeContentY + contentHeight
+        cellFrame.contentHeight = contentHeight > CGFloat(kHomeMaxContentHeight) ? CGFloat(kHomeMaxContentHeight) : contentHeight
+        cellFrame.realContentHeight = contentHeight
+        let contentMaxY = kHomeContentY + cellFrame.contentHeight
         cellFrame.height = (kHomePicBeginY > contentMaxY ? kHomePicBeginY : contentMaxY) + kHomeMargin * (numRows + 1.0) + kHomePicWH * numRows
     }
     
     // 计算含一张图片的cell的高度
     func calculateCellOnePicHeight(cellFrame: TableHomeListCellFrame, model: TableHomeCircleModel) {
         let value = self.calculateOnePicHeight(model: model)
-        cellFrame.contentHeight = value.contentHeight
+        cellFrame.contentHeight = value.contentHeight > CGFloat(kHomeMaxContentHeight) ? CGFloat(kHomeMaxContentHeight) : value.contentHeight
+        cellFrame.realContentHeight = value.contentHeight
         cellFrame.onePicSize = value.picSize
         let contentMaxY = kHomeContentY + cellFrame.contentHeight
         cellFrame.height = (kHomePicBeginY > contentMaxY ? kHomePicBeginY : contentMaxY) + kHomeMargin * 2 + value.picSize.height
