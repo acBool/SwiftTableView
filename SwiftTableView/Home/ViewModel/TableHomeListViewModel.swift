@@ -30,14 +30,13 @@ extension TableHomeListViewModel: UITableViewDelegate {
         
         if indexPath.row < cellFrameArray.count {
             let cellFrame: TableHomeListCellFrame = cellFrameArray[indexPath.row]
-            print(cellFrame.contentHeight)
             if cellFrame.height == 0 {
                 // 说明高度需要计算
                 let model: TableHomeCircleModel = dataSourceArray[indexPath.row]
                 let typeStr = self.getCellType(model: model)
                 let cellType = typeDictInfo[typeStr]
                 if cellType == nil {
-                    return RS(100)
+                    return kDefaultCellHeight
                 }else{
                     switch cellType {
                     case .TableHomeCellTypeWord:
@@ -50,11 +49,30 @@ extension TableHomeListViewModel: UITableViewDelegate {
                         cellFrame.contentHeight = value.contentHeight
                         cellFrame.onePicSize = value.picSize
                         let height = cellFrame.contentHeight + cellFrame.onePicSize.height + RS(50)
-                        print("height = \(height)")
                         cellFrame.height = (RS(70) > height ? RS(80) : height) + RS(20)
                         return cellFrame.height
+                    case .TableHomeCellTypeTTPic:
+                        let contentHeight = self.calculateContentSize(content: model.content)
+                        cellFrame.contentHeight = contentHeight
+                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH
+                        return cellFrame.height
+                    case .TableHomeCellTypeFourPic:
+                        let contentHeight = self.calculateContentSize(content: model.content)
+                        cellFrame.contentHeight = contentHeight
+                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH * 2
+                        return cellFrame.height
+                    case .TableHomeCellTypeFSPic:
+                        let contentHeight = self.calculateContentSize(content: model.content)
+                        cellFrame.contentHeight = contentHeight
+                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH * 2
+                        return cellFrame.height
+                    case .TableHomeCellTypeSENPic:
+                        let contentHeight = self.calculateContentSize(content: model.content)
+                        cellFrame.contentHeight = contentHeight
+                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH * 3
+                        return cellFrame.height
                     default:
-                        return RS(100)
+                        return kDefaultCellHeight
                     }
                 }
             }else{
@@ -62,7 +80,7 @@ extension TableHomeListViewModel: UITableViewDelegate {
                 return cellFrame.height
             }
         }
-        return RS(100)
+        return kDefaultCellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

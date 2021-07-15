@@ -20,9 +20,6 @@ class TableHomeOnePicCell: TableHomeBaseCell {
     lazy var picImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = TableStyle.shared.lineSpaceColor()
-//        let shapeLayer = cornerShapeLayer(view: imageView, radius: RS(5))
-//        imageView.layer.mask = shapeLayer
-        
         return imageView
     }()
     

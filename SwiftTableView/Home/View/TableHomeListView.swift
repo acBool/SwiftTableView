@@ -22,7 +22,7 @@ class TableHomeListView: UIView {
         tableView.separatorStyle = .none
         tableView.backgroundColor = TableStyle.shared.mainBgColor()
         tableView.showsVerticalScrollIndicator = true
-        //tableView.register(TableHomeBaseCell.self, forCellReuseIdentifier: "TableHomeBaseCell")
+        registerCell(tableView: tableView)
         return tableView
     }()
     
@@ -45,5 +45,18 @@ class TableHomeListView: UIView {
     private func setupUI() {
         addSubview(titleLabel)
         addSubview(tableView)
+    }
+}
+
+
+extension TableHomeListView {
+    func registerCell(tableView: UITableView) {
+        tableView.register(TableHomeBaseCell.self, forCellReuseIdentifier: "TableHomeBaseCell")
+        tableView.register(TableHomeWordCell.self, forCellReuseIdentifier: "TableHomeWordCell")
+        tableView.register(TableHomeOnePicCell.self, forCellReuseIdentifier: "TableHomeOnePicCell")
+        tableView.register(TableHomeTTPicCell.self, forCellReuseIdentifier: "TableHomeTTPicCell")
+        tableView.register(TableHomeFourPicCell.self, forCellReuseIdentifier: "TableHomeFourPicCell")
+        tableView.register(TableHomeFSPicCell.self, forCellReuseIdentifier: "TableHomeFSPicCell")
+        tableView.register(TableHomeSENPicCell.self, forCellReuseIdentifier: "TableHomeSENPicCell")
     }
 }

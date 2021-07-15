@@ -12,6 +12,10 @@ import PinLayout
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 
+let kHomeMargin = RS(10)
+let kHomePicWH = (ScreenWidth - 4 * RS(10)) / 3
+let kDefaultCellHeight = RS(100)
+
 let kStatusBarHeight =  UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.size.height ?? 20
 
 let kNavBarHeight: CGFloat = 44.0
