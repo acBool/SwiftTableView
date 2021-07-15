@@ -29,6 +29,7 @@
 		F068755F269D92060069ED15 /* TableUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F068755E269D92060069ED15 /* TableUtilities.swift */; };
 		F0687564269D93E80069ED15 /* TableHomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0687563269D93E80069ED15 /* TableHomeListView.swift */; };
 		F06D829E269F23AC0009057D /* TableHomeCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06D829D269F23AC0009057D /* TableHomeCellFactory.swift */; };
+		F084904D26A0267E00251AB5 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = F084904C26A0267E00251AB5 /* 1.json */; };
 		F0A2E2C9269DF270007D423C /* TableHomeBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2C8269DF270007D423C /* TableHomeBaseCell.swift */; };
 		F0A2E2CB269DF37B007D423C /* TableHomeWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2CA269DF37B007D423C /* TableHomeWordCell.swift */; };
 		F0A2E2CD269DF3B0007D423C /* TableHomeOnePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2CC269DF3B0007D423C /* TableHomeOnePicCell.swift */; };
@@ -89,6 +90,7 @@
 		F068755E269D92060069ED15 /* TableUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUtilities.swift; sourceTree = "<group>"; };
 		F0687563269D93E80069ED15 /* TableHomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeListView.swift; sourceTree = "<group>"; };
 		F06D829D269F23AC0009057D /* TableHomeCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeCellFactory.swift; sourceTree = "<group>"; };
+		F084904C26A0267E00251AB5 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
 		F0A2E2C8269DF270007D423C /* TableHomeBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeBaseCell.swift; sourceTree = "<group>"; };
 		F0A2E2CA269DF37B007D423C /* TableHomeWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeWordCell.swift; sourceTree = "<group>"; };
 		F0A2E2CC269DF3B0007D423C /* TableHomeOnePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeOnePicCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		F02A5FFD269EC5A800A4C15F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F084904C26A0267E00251AB5 /* 1.json */,
 				F02A5FFE269ECCBC00A4C15F /* 0.json */,
 			);
 			path = Resource;
@@ -418,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F084904D26A0267E00251AB5 /* 1.json in Resources */,
 				F068751D269D1DCF0069ED15 /* LaunchScreen.storyboard in Resources */,
 				F068751A269D1DCF0069ED15 /* Assets.xcassets in Resources */,
 				F02A5FFF269ECCBC00A4C15F /* 0.json in Resources */,
