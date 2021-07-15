@@ -10,6 +10,11 @@ class TableDetailViewController: TableBaseViewController {
 
     var dataModel: TableHomeCircleModel
     var cellFrame: TableHomeListCellFrame
+    lazy var viewModel: TableDetailViewModel = {
+        let viewModel = TableDetailViewModel()
+        viewModel.model = self.dataModel
+        return viewModel
+    }()
     
     lazy var specView: TableDetailView = {
         let view = TableDetailView()
@@ -34,6 +39,7 @@ class TableDetailViewController: TableBaseViewController {
         self.title = _L("Detail")
         self.setupUI()
         self.bindModel()
+        self.setupData()
     }
     
 }
@@ -58,5 +64,14 @@ extension TableDetailViewController {
             layout.itemSize = CGSize(width: kHomePicWH, height: kHomePicWH)
         }
         specView.flowLayout = layout
+        specView.contentHeight = cellFrame.contentHeight
+        specView.bindHeaderData(model: self.dataModel)
+    }
+    
+    func setupData() {
+        specView.collectionView.delegate = viewModel
+        specView.collectionView.dataSource = viewModel
+        
+        specView.collectionView.reloadData()
     }
 }

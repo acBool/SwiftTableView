@@ -41,6 +41,7 @@
 		F0A2E2D3269DF484007D423C /* TableHomeFSPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2D2269DF484007D423C /* TableHomeFSPicCell.swift */; };
 		F0A2E2D5269DF4AE007D423C /* TableHomeSENPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2E2D4269DF4AE007D423C /* TableHomeSENPicCell.swift */; };
 		F0D415D526A0697A00F1B29B /* TableDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D415D426A0697A00F1B29B /* TableDetailViewModel.swift */; };
+		F0D415D726A06BA700F1B29B /* TableDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D415D626A06BA700F1B29B /* TableDetailCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		F0A2E2D2269DF484007D423C /* TableHomeFSPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeFSPicCell.swift; sourceTree = "<group>"; };
 		F0A2E2D4269DF4AE007D423C /* TableHomeSENPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHomeSENPicCell.swift; sourceTree = "<group>"; };
 		F0D415D426A0697A00F1B29B /* TableDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailViewModel.swift; sourceTree = "<group>"; };
+		F0D415D626A06BA700F1B29B /* TableDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailCollectionCell.swift; sourceTree = "<group>"; };
 		F6BA67EFD942DCC68B5B4D18 /* Pods-SwiftTableViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTableViewTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTableViewTests/Pods-SwiftTableViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				F084905526A0369300251AB5 /* TableDetailView.swift */,
+				F0D415D626A06BA700F1B29B /* TableDetailCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0687515269D1DCE0069ED15 /* ViewController.swift in Sources */,
+				F0D415D726A06BA700F1B29B /* TableDetailCollectionCell.swift in Sources */,
 				F084905326A0307900251AB5 /* TableBaseNavigationController.swift in Sources */,
 				F02A5FFC269EBF8800A4C15F /* TableHomeCircleModel.swift in Sources */,
 				F0687511269D1DCE0069ED15 /* AppDelegate.swift in Sources */,
