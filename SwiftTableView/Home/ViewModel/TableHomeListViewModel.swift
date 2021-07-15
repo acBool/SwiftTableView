@@ -40,36 +40,22 @@ extension TableHomeListViewModel: UITableViewDelegate {
                 }else{
                     switch cellType {
                     case .TableHomeCellTypeWord:
-                        let contentHeight = self.calculateContentSize(content: model.content)
-                        cellFrame.contentHeight = contentHeight
-                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20)
+                        calculateCellHeight(cellFrame: cellFrame, numRows: 0, model: model)
                         return cellFrame.height
                     case .TableHomeCellTypeOnePic:
-                        let value = self.calculateOnePicHeight(model: model)
-                        cellFrame.contentHeight = value.contentHeight
-                        cellFrame.onePicSize = value.picSize
-                        let height = cellFrame.contentHeight + cellFrame.onePicSize.height + RS(50)
-                        cellFrame.height = (RS(70) > height ? RS(80) : height) + RS(20)
+                        calculateCellOnePicHeight(cellFrame: cellFrame, model: model)
                         return cellFrame.height
                     case .TableHomeCellTypeTTPic:
-                        let contentHeight = self.calculateContentSize(content: model.content)
-                        cellFrame.contentHeight = contentHeight
-                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH
+                        calculateCellHeight(cellFrame: cellFrame, numRows: 1, model: model)
                         return cellFrame.height
                     case .TableHomeCellTypeFourPic:
-                        let contentHeight = self.calculateContentSize(content: model.content)
-                        cellFrame.contentHeight = contentHeight
-                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH * 2
+                        calculateCellHeight(cellFrame: cellFrame, numRows: 2, model: model)
                         return cellFrame.height
                     case .TableHomeCellTypeFSPic:
-                        let contentHeight = self.calculateContentSize(content: model.content)
-                        cellFrame.contentHeight = contentHeight
-                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH * 2
+                        calculateCellHeight(cellFrame: cellFrame, numRows: 2, model: model)
                         return cellFrame.height
                     case .TableHomeCellTypeSENPic:
-                        let contentHeight = self.calculateContentSize(content: model.content)
-                        cellFrame.contentHeight = contentHeight
-                        cellFrame.height = (RS(70) > contentHeight ? RS(80) : contentHeight) + RS(20) + kHomePicWH * 3
+                        calculateCellHeight(cellFrame: cellFrame, numRows: 3, model: model)
                         return cellFrame.height
                     default:
                         return kDefaultCellHeight
@@ -142,7 +128,7 @@ extension TableHomeListViewModel {
     
     
     func calculateContentSize(content: String) -> CGFloat{
-        let maxWidth = ScreenWidth - RS(80)
+        let maxWidth = ScreenWidth - kHomeContentX - kHomeMargin
         return content.boundingRect(with: CGSize(width: maxWidth, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : TableStyle.shared.h4()], context: nil).size.height
     }
     
@@ -166,5 +152,22 @@ extension TableHomeListViewModel {
         }else {
             return CGSize(width: imgWidth, height: imgHeight)
         }
+    }
+    
+    // 根据图片行数计算cell高度
+    func calculateCellHeight(cellFrame:TableHomeListCellFrame, numRows: CGFloat, model: TableHomeCircleModel) {
+        let contentHeight = self.calculateContentSize(content: model.content)
+        cellFrame.contentHeight = contentHeight
+        let contentMaxY = kHomeContentY + contentHeight
+        cellFrame.height = (kHomePicBeginY > contentMaxY ? kHomePicBeginY : contentMaxY) + kHomeMargin * (numRows + 1.0) + kHomePicWH * numRows
+    }
+    
+    // 计算含一张图片的cell的高度
+    func calculateCellOnePicHeight(cellFrame: TableHomeListCellFrame, model: TableHomeCircleModel) {
+        let value = self.calculateOnePicHeight(model: model)
+        cellFrame.contentHeight = value.contentHeight
+        cellFrame.onePicSize = value.picSize
+        let contentMaxY = kHomeContentY + cellFrame.contentHeight
+        cellFrame.height = (kHomePicBeginY > contentMaxY ? kHomePicBeginY : contentMaxY) + kHomeMargin * 2 + value.picSize.height
     }
 }

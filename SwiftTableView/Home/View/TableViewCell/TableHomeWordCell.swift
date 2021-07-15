@@ -39,9 +39,8 @@ class TableHomeWordCell: TableHomeBaseCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let margin = RS(10)
-        self.contentLabel.frame = CGRect(x: RS(70), y: RS(40), width: ScreenWidth - RS(80), height: self.cellFrame.contentHeight)
-        spaceView.frame = CGRect(x: margin, y: self.cellFrame.height - 0.5, width: ScreenWidth - 2 * margin, height: 0.5)
+        self.contentLabel.frame = CGRect(x: kHomeContentX, y: kHomeContentY, width: ScreenWidth - kHomeContentX - kHomeMargin, height: self.cellFrame.contentHeight)
+        spaceView.frame = CGRect(x: kHomeMargin, y: self.cellFrame.height - 0.5, width: ScreenWidth - 2 * kHomeMargin, height: 0.5)
     }
     
     override func bindData(_ model: TableHomeCircleModel,_ cellFrame: TableHomeListCellFrame) {

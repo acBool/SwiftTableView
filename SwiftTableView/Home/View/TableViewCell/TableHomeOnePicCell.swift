@@ -46,12 +46,11 @@ class TableHomeOnePicCell: TableHomeBaseCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let margin = RS(10)
-        self.contentLabel.frame = CGRect(x: RS(70), y: RS(40), width: ScreenWidth - RS(80), height: self.cellFrame.contentHeight)
-        self.picImageView.frame = CGRect(x: margin, y: self.contentLabel.frame.maxY + margin, width: self.cellFrame.onePicSize.width, height: self.cellFrame.onePicSize.height)
+        self.contentLabel.frame = CGRect(x: kHomeContentX, y: kHomeContentY, width: ScreenWidth - kHomeContentX - kHomeMargin, height: self.cellFrame.contentHeight)
+        self.picImageView.frame = CGRect(x: kHomeMargin, y: self.contentLabel.frame.maxY + kHomeMargin, width: self.cellFrame.onePicSize.width, height: self.cellFrame.onePicSize.height)
         let shapeLayer = cornerShapeLayer(view: self.picImageView, radius: RS(5))
         self.picImageView.layer.mask = shapeLayer
-        spaceView.frame = CGRect(x: margin, y: self.cellFrame.height - 0.5, width: ScreenWidth - 2 * margin, height: 0.5)
+        spaceView.frame = CGRect(x: kHomeMargin, y: self.cellFrame.height - 0.5, width: ScreenWidth - 2 * kHomeMargin, height: 0.5)
     }
     
     override func bindData(_ model: TableHomeCircleModel,_ cellFrame: TableHomeListCellFrame) {

@@ -49,7 +49,7 @@ class TableHomeTTPicCell: TableHomeBaseCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentLabel.frame = CGRect(x: RS(70), y: RS(40), width: ScreenWidth - RS(80), height: self.cellFrame.contentHeight)
+        self.contentLabel.frame = CGRect(x: kHomeContentX, y: kHomeContentY, width: ScreenWidth - kHomeContentX - kHomeMargin, height: self.cellFrame.contentHeight)
         let oneWidth = kHomeMargin + kHomePicWH
         // 设置每个imageView frame，不需要动态计算
         for i in 1...self.picImageViewArray.count {

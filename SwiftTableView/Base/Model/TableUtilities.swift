@@ -13,8 +13,12 @@ let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 
 let kHomeMargin = RS(10)
-let kHomePicWH = (ScreenWidth - 4 * RS(10)) / 3
+let kHomePicWH = (ScreenWidth - 4 * kHomeMargin) / 3
 let kDefaultCellHeight = RS(100)
+let kHomeHeadWH = RS(50)
+let kHomePicBeginY = kHomeHeadWH + kHomeMargin
+let kHomeContentY = RS(40)
+let kHomeContentX = kHomeHeadWH + 2 * kHomeMargin
 
 let kStatusBarHeight =  UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.size.height ?? 20
 
