@@ -48,7 +48,6 @@ extension TableHomeListViewController {
     func setupData() {
         specView.tableView.delegate = viewModel
         specView.tableView.dataSource = viewModel
-        specView.tableView.reloadData()
         
         specView.tableView.es.addPullToRefresh {
             [unowned self] in
@@ -60,7 +59,10 @@ extension TableHomeListViewController {
                 self.viewModel.dataSourceArray.removeAll()
                 self.viewModel.dataSourceArray += dataArray
                 self.viewModel.cellFrameArray.removeAll()
-                self.viewModel.cellFrameArray += Array(repeating: TableHomeListCellFrame(), count: dataArray.count)
+                for _ in 1...dataArray.count {
+                    var cellFrame = TableHomeListCellFrame()
+                    self.viewModel.cellFrameArray.append(cellFrame)
+                }
                 specView.tableView.reloadData()
             }
         }
@@ -71,7 +73,11 @@ extension TableHomeListViewController {
             if dataArray.count > 0 {
                 self.page += 1
                 self.viewModel.dataSourceArray += dataArray
-                self.viewModel.cellFrameArray += Array(repeating: TableHomeListCellFrame(), count: dataArray.count)
+                for _ in 1...dataArray.count {
+                    var cellFrame = TableHomeListCellFrame()
+                    self.viewModel.cellFrameArray.append(cellFrame)
+                }
+//                self.viewModel.cellFrameArray += Array(repeating: TableHomeListCellFrame(), count: dataArray.count)
                 specView.tableView.reloadData()
                 specView.tableView.es.stopLoadingMore()
             }else {

@@ -5,9 +5,12 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TableHomeBaseCell: UITableViewCell {
 
+    lazy var cellFrame: TableHomeListCellFrame = TableHomeListCellFrame()
+    
     lazy var headImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = TableStyle.shared.mainBgColor()
@@ -63,7 +66,7 @@ class TableHomeBaseCell: UITableViewCell {
         let nickWidth = ScreenWidth - leftX - margin
         nickNameLayer.frame = CGRect(x: leftX, y: RS(15), width: nickWidth, height: RS(20))
         
-        spaceView.pin.left(margin).right(margin).height(0.5).bottom()
+        //spaceView.pin.left(margin).right(margin).height(0.5).bottom()
     }
     
     func bindData(_ model: TableHomeCircleModel, _ cellFrame: TableHomeListCellFrame) {

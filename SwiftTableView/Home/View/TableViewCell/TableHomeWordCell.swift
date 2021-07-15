@@ -37,12 +37,18 @@ class TableHomeWordCell: TableHomeBaseCell {
         self.contentView.addSubview(self.contentLabel)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let margin = RS(10)
+        self.contentLabel.frame = CGRect(x: RS(70), y: RS(40), width: ScreenWidth - RS(80), height: self.cellFrame.contentHeight)
+        spaceView.frame = CGRect(x: margin, y: self.cellFrame.height - 0.5, width: ScreenWidth - 2 * margin, height: 0.5)
+    }
+    
     override func bindData(_ model: TableHomeCircleModel,_ cellFrame: TableHomeListCellFrame) {
         super.bindData(model,cellFrame)
         self.contentLabel.text = model.content
-        
-        self.contentLabel.frame = CGRect(x: RS(70), y: RS(40), width: ScreenWidth - RS(80), height: cellFrame.contentHeight)
-        print("word cell bind")
+        self.cellFrame = cellFrame
+        setNeedsLayout()
     }
 }
 
