@@ -60,7 +60,7 @@ class TableHomeBaseCell: UITableViewCell {
         headImageView.pin.top(kHomeMargin).left(kHomeMargin).width(kHomeHeadWH).height(kHomeHeadWH)
         let shapeLayer = cornerShapeLayer(view: headImageView, radius: kHomeHeadWH * 0.5)
         headImageView.layer.mask = shapeLayer
-        
+
         let nickWidth = ScreenWidth - leftX - kHomeMargin
         nickNameLayer.frame = CGRect(x: leftX, y: RS(15), width: nickWidth, height: RS(20))
     }

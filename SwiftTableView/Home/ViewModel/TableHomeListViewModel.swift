@@ -129,7 +129,8 @@ extension TableHomeListViewModel {
     
     func calculateContentSize(content: String) -> CGFloat{
         let maxWidth = ScreenWidth - kHomeContentX - kHomeMargin
-        return content.boundingRect(with: CGSize(width: maxWidth, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : TableStyle.shared.h4()], context: nil).size.height
+        let size = content.boundingRect(with: CGSize(width: maxWidth, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : TableStyle.shared.h4()], context: nil).size
+        return size.height.ceil + RS(5)
     }
     
     func calculatePicSize(model: TablePicture) -> CGSize {

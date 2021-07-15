@@ -18,10 +18,9 @@ class TableHomeListView: UIView {
     }()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
         tableView.backgroundColor = TableStyle.shared.mainBgColor()
-        tableView.showsVerticalScrollIndicator = true
         registerCell(tableView: tableView)
         return tableView
     }()
