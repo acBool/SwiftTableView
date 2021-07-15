@@ -28,6 +28,8 @@ extension TableDetailCollectionCell {
     func setupUI() {
         addSubview(picImageView)
         picImageView.pin.top().left().right().bottom()
+        let shapeLayer = cornerShapeLayer(view: picImageView, radius: RS(5))
+        picImageView.layer.mask = shapeLayer
     }
     
     func bindData(url: String) {

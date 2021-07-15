@@ -26,6 +26,10 @@ class TableStyle {
         return UIColor(hex: 0x222222)!
     }
     
+    func coverBordColor() -> UIColor {
+        return UIColor(hex: 0x000000)!.withAlphaComponent(0.5)
+    }
+    
     func bh1() -> UIFont {
         return UIFont.boldSystemFont(ofSize: 21)
     }

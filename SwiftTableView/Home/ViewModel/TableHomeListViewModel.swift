@@ -99,10 +99,7 @@ extension TableHomeListViewModel: UITableViewDataSource {
         if indexPath.row < dataSourceArray.count {
             let model: TableHomeCircleModel = dataSourceArray[indexPath.row]
             var cell: TableHomeBaseCell
-            var typeStr = model.type
-            if model.type == "img"{
-                typeStr = model.type + "_" + String(model.imgArray.count)
-            }
+            let typeStr = self.getCellType(model: model)
             let cellType = typeDictInfo[typeStr]
             if cellType == nil {
                 return TableHomeBaseCell()
@@ -120,7 +117,11 @@ extension TableHomeListViewModel {
     func getCellType(model: TableHomeCircleModel) ->String {
         var typeStr = model.type
         if model.type == "img"{
-            typeStr = model.type + "_" + String(model.imgArray.count)
+            if model.imgArray.count > 9 {
+                typeStr = model.type + "_" + String(9)
+            }else {
+                typeStr = model.type + "_" + String(model.imgArray.count)
+            }
         }
         return typeStr
     }

@@ -103,7 +103,8 @@ extension TableHomeBaseCell {
     
     // 设置图片url
     func setupImagesUrl(model: TableHomeCircleModel) {
-        for i in 1...model.imgArray.count {
+        let maxCount = model.imgArray.count > 9 ? 9 : model.imgArray.count
+        for i in 1...maxCount {
             let picture: TablePicture = model.imgArray[i - 1]
             let imageView: UIImageView = self.picImageViewArray[i - 1]
             imageView.isHidden = false
