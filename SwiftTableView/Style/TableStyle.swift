@@ -30,6 +30,10 @@ class TableStyle {
         return UIFont.boldSystemFont(ofSize: 21)
     }
     
+    func h3() -> UIFont {
+        return UIFont.systemFont(ofSize: 14)
+    }
+    
     func h4() -> UIFont {
         return UIFont.systemFont(ofSize: 13)
     }
