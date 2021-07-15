@@ -79,6 +79,15 @@ extension TableHomeListViewModel: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row < cellFrameArray.count {
+            let cellFrame: TableHomeListCellFrame = cellFrameArray[indexPath.row]
+            if cellFrame.height > 0 {
+                return cellFrame.height
+            }
+        }
+        return kDefaultCellHeight
+    }
 }
 
 extension TableHomeListViewModel: UITableViewDataSource {

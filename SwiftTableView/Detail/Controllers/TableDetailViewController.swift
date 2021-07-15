@@ -60,6 +60,9 @@ extension TableDetailViewController {
         if self.dataModel.imgArray.count == 1 {
             // 仅一张图片，特殊处理
             layout.itemSize = cellFrame.onePicSize
+            layout.sectionInset = UIEdgeInsets(
+                top: 0, left: kHomeMargin, bottom: 0,
+                right: ScreenWidth - kHomeMargin * 2 - cellFrame.onePicSize.width)
         }else {
             layout.itemSize = CGSize(width: kHomePicWH, height: kHomePicWH)
         }
